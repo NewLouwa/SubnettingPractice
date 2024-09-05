@@ -2,19 +2,15 @@ import os
 import random
 
 # Define some color codes
-COLORS = [
-    "\033[91m",  # Red
-    "\033[92m",  # Green
-    "\033[93m",  # Yellow
-    "\033[94m",  # Blue
-    "\033[95m",  # Magenta
-    "\033[96m",  # Cyan
-    "\033[97m"   # White
-]
+COLORS = {
+    "server": "\033[91m",  # Red for server-side (backend)
+    "client": "\033[94m",  # Blue for client-side (frontend)
+    "default": "\033[97m", # Default color for other files
+}
 RESET_COLOR = "\033[0m"  # Reset to default color
 
-def list_directory_contents(path, indent=0, color=RESET_COLOR, include_files=True):
-    """Recursively lists the contents of a directory with indentation, using the same color for all children of a directory."""
+def list_directory_contents(path, indent=0, include_files=True):
+    """Recursively lists the contents of a directory with different colors for server and client side."""
     try:
         items = os.listdir(path)
     except PermissionError:
@@ -27,17 +23,27 @@ def list_directory_contents(path, indent=0, color=RESET_COLOR, include_files=Tru
     items.sort()  # Sort items for consistent output order
     
     for item in items:
-        if item == '__pycache__' or item.startswith('.git'):
-            continue  # Skip __pycache__ directories and Git-related files
+        # Skip __pycache__, .git, node_modules directories
+        if item in ['__pycache__', '.git', 'node_modules']:
+            continue  # Ignore node_modules and similar directories
 
         item_path = os.path.join(path, item)
+
+        # Determine the color based on whether the file is server-side or client-side
+        if 'server' in item_path or 'backend' in item_path:
+            color = COLORS['server']  # Red for server-side
+        elif 'public' in item_path or 'client' in item_path:
+            color = COLORS['client']  # Blue for client-side
+        else:
+            color = COLORS['default']  # Default color for anything else
+
         if os.path.isdir(item_path):
-            # Choose a color for the directory and pass it to its contents
-            folder_color = random.choice(COLORS)
-            print(folder_color + ' ' * indent + f'[DIR]  {item}/' + RESET_COLOR)
-            list_directory_contents(item_path, indent + 4, folder_color, include_files)  # Pass the color to contents
+            # Print the directory and apply the correct color
+            print(color + ' ' * indent + f'[DIR]  {item}/' + RESET_COLOR)
+            # Recurse into the directory
+            list_directory_contents(item_path, indent + 4, include_files)
         elif include_files:
-            # Apply the parent's color to the file
+            # Print the file and apply the correct color
             print(color + ' ' * indent + f'[FILE] {item}' + RESET_COLOR)
 
 def main():
