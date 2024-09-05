@@ -1,4 +1,4 @@
-import { ProfileLayout } from "../layout/ProfileLayout.js";
+import { ProfileLayout } from "..\layout\ProfileLayout.js";
 
 // Fonction pour afficher la page de profil
 export function ProfilePage() {

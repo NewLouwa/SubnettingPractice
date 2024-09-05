@@ -1,5 +1,5 @@
-import { BaseLayout } from './layout/BaseLayout.js';  // Importer le layout de base
-import { showSignupModal } from './modals/SignupModal.js';
+import { BaseLayout } from './layout/BaseLayout.js';   // One directory up, then into layout
+import { showSignupModal } from "../modals/SignupModal.js";
 
 // Fonction pour afficher la page d'inscription
 export function SignupPage() {

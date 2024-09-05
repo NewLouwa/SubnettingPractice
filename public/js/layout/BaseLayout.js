@@ -1,4 +1,3 @@
-// Fonction pour générer le layout de base
 export function BaseLayout(content) {
     // Créer les éléments communs
     const app = document.getElementById('app');
@@ -7,10 +6,14 @@ export function BaseLayout(content) {
     const header = document.createElement('header');
     header.classList.add('app-header');
     header.innerHTML = `
-        <h1>Exercez-vous !</h1>
-        <nav>
+        <div class="logo-title">
+            <img src="assets/logo.png" alt="Logo" class="logo">
+            <h1>Exercez-vous !</h1>
+        </div>
+        <nav class="main-nav">
             <a href="#" id="home-link">Accueil</a>
             <a href="#" id="profile-link">Profil</a>
+            <a href="#" id="signup-link">Inscription</a>
         </nav>
     `;
 
@@ -26,4 +29,5 @@ export function BaseLayout(content) {
     app.appendChild(header);
     app.appendChild(main);
     app.appendChild(footer);
+    console.log("BaseLayout loaded");
 }

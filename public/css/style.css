@@ -1,75 +1,140 @@
-/* Style pour la page principale */
+/* Modern page styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f4f8; /* Softer, modern background color */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
 .container {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Clean white background */
+    padding: 40px; /* More padding for modern spacing */
+    border-radius: 15px; /* Softer, rounder corners */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Larger, softer shadow */
     text-align: center;
-    width: 400px;
+    width: 100%;
+    max-width: 500px; /* Limit width for responsive design */
+    margin: 20px; /* Add some margin for breathing room */
 }
 
-/* Boutons */
+/* Modern button styles */
 .button-group {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Space buttons evenly */
+    gap: 15px; /* Add a gap between buttons */
 }
 
 button {
-    background-color: #007bff;
+    background-color: #007bff; /* Primary button color */
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 12px 25px; /* Larger padding for bigger buttons */
+    font-size: 18px; /* Slightly larger font for readability */
+    border-radius: 8px; /* Softer border radius */
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Darker hover effect */
+    transform: scale(1.05); /* Slight pop effect on hover */
 }
 
-/* Modale */
+/* Modern modal styles */
 .modal {
     display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker backdrop */
 }
 
 .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
+    background-color: #ffffff;
+    padding: 30px; /* More padding for modern feel */
+    border-radius: 12px; /* Softer corners */
     text-align: center;
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .close {
     position: absolute;
     right: 20px;
-    top: 20px;
+    top: 15px;
     cursor: pointer;
-    font-size: 24px;
-    color: #aaa;
+    font-size: 28px; /* Larger and more visible close button */
+    color: #ccc; /* Lighter color for the close button */
 }
 
 .close:hover {
-    color: #000;
+    color: #000; /* Darker on hover */
+}
+
+/* Header styling */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo and title styling */
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px; /* Adjust the size of the logo */
+    height: 40px;
+    margin-right: 15px; /* Spacing between logo and title */
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Navigation styling */
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: #0056b3; /* Hover effect on nav links */
+}
+
+/* Footer styling */
+.app-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
 }
