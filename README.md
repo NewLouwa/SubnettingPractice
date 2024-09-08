@@ -1,7 +1,7 @@
 
-# 🌐 Subnetting Practice - Learn Networking with Fun Exercises! 🎓
+# 🌐 IPAcademy - Learn Networking with Fun Exercises! 🎓
 
-Welcome to **Subnetting Practice**, a web application designed to help you master networking concepts such as subnets, IP addresses, masks, and more! 🚀 This app generates dynamic exercises and quizzes to enhance your knowledge and skills in computer networking.
+Welcome to **IPAcademy**, a web application designed to help you master networking concepts such as subnets, IP addresses, masks, and more! 🚀 This app generates dynamic exercises and quizzes to enhance your knowledge and skills in computer networking.
 
 ## 🛠️ Technologies Used
 
@@ -55,7 +55,7 @@ The main server file that serves static files and handles backend routing using 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/subnetting-practice.git
+git clone https://github.com/your-username/IPAcademy.git
 ```
 ### 2. Install Dependencies
 ```bash
