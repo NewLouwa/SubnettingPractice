@@ -1,5 +1,6 @@
 import { BaseLayout } from '../layout/BaseLayout.js';
 
+
 // Fonction pour afficher la page d'accueil
 export function HomePage() {
     const content = document.createElement('div');

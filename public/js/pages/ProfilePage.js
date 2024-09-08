@@ -1,4 +1,4 @@
-import { ProfileLayout } from "..\layout\ProfileLayout.js";
+import { ProfileLayout } from "../layout/ProfileLayout.js";
 
 // Fonction pour afficher la page de profil
 export function ProfilePage() {
@@ -22,7 +22,7 @@ export function ProfilePage() {
     const logoutBtn = document.createElement('button');
     logoutBtn.textContent = 'Se déconnecter';
     logoutBtn.addEventListener('click', () => {
-        // Vous ajouterez la fonction Firebase Auth de déconnexion ici
+        // Vous ajouterez la fonction Firebase de déconnexion ici
         alert('Déconnexion réussie!');
         window.location.href = '#home';  // Retour à l'accueil après déconnexion
     });

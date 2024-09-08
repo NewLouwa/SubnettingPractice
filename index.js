@@ -1,30 +1,19 @@
-require('dotenv').config();  // Load environment variables
+// index.js
 const express = require('express');
 const path = require('path');
-const admin = require('./server/firebaseAdmin');  // Import Firebase Admin SDK if needed
+const bodyParser = require('body-parser');
+const routes = require('./server/routes');  // Import routes from routes.js
 
 const app = express();
+app.use(bodyParser.json());  // Parse JSON bodies
 
-// Serve static files (HTML, CSS, JS) from the 'public' directory
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to serve index.html as the entry point (for SPA behavior)
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
+// Use routes from routes.js
+app.use('/api', routes);  // All routes prefixed with /api will be handled by routes.js
 
-// Optional: Create an API route that uses Firebase Admin for server-side logic
-app.get('/api/data', (req, res) => {
-    admin.firestore().collection('users').get()
-        .then(snapshot => {
-            const users = [];
-            snapshot.forEach(doc => users.push(doc.data()));
-            res.json(users);
-        })
-        .catch(err => res.status(500).send('Error fetching data'));
-});
-
-// Fallback route for Single Page Application (SPA) to serve index.html
+// Fallback route to serve index.html for any unrecognized routes (Single Page Application behavior)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
@@ -32,5 +21,5 @@ app.get('*', (req, res) => {
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

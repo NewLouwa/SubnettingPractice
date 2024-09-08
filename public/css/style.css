@@ -1,140 +1,166 @@
-/* Modern page styling */
+/* Base styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8; /* Softer, modern background color */
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     min-height: 100vh;
-    line-height: 1.6;
 }
 
-.container {
-    background-color: #ffffff; /* Clean white background */
-    padding: 40px; /* More padding for modern spacing */
-    border-radius: 15px; /* Softer, rounder corners */
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Larger, softer shadow */
-    text-align: center;
-    width: 100%;
-    max-width: 500px; /* Limit width for responsive design */
-    margin: 20px; /* Add some margin for breathing room */
-}
-
-/* Modern button styles */
-.button-group {
+#app {
+    flex-grow: 1;
     display: flex;
-    justify-content: space-between; /* Space buttons evenly */
-    gap: 15px; /* Add a gap between buttons */
-}
-
-button {
-    background-color: #007bff; /* Primary button color */
-    color: white;
-    border: none;
-    padding: 12px 25px; /* Larger padding for bigger buttons */
-    font-size: 18px; /* Slightly larger font for readability */
-    border-radius: 8px; /* Softer border radius */
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker hover effect */
-    transform: scale(1.05); /* Slight pop effect on hover */
-}
-
-/* Modern modal styles */
-.modal {
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Slightly darker backdrop */
 }
 
-.modal-content {
-    background-color: #ffffff;
-    padding: 30px; /* More padding for modern feel */
-    border-radius: 12px; /* Softer corners */
-    text-align: center;
-    width: 100%;
-    max-width: 350px;
-    position: relative;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Softer shadow */
-}
-
-.close {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    cursor: pointer;
-    font-size: 28px; /* Larger and more visible close button */
-    color: #ccc; /* Lighter color for the close button */
-}
-
-.close:hover {
-    color: #000; /* Darker on hover */
-}
-
-/* Header styling */
+/* Header */
 .app-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #007bff;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: 'Quicksand', sans-serif;
 }
 
-/* Logo and title styling */
 .logo-title {
     display: flex;
     align-items: center;
 }
 
 .logo {
-    width: 40px; /* Adjust the size of the logo */
     height: 40px;
-    margin-right: 15px; /* Spacing between logo and title */
+    margin-right: 10px;
 }
 
-h1 {
+nav.main-nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+}
+
+nav.main-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content */
+.app-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px; /* Space for the fixed header */
+    flex-grow: 1;
+    min-height: calc(100vh - 120px); /* Adjust based on the combined height of header and footer */
+    width: 100%;
+}
+
+.home-page {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-page h2 {
     font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.home-page p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.app-footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.app-footer p {
     margin: 0;
 }
 
-/* Navigation styling */
-.main-nav {
+.password-wrapper {
     display: flex;
-    gap: 20px;
+    align-items: center;
+    position: relative;
 }
 
-.main-nav a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
-.main-nav a:hover {
-    background-color: #0056b3; /* Hover effect on nav links */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .app-header {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+    }
+
+    .main-nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .app-main {
+        padding-top: 100px; /* Adjust for taller header */
+    }
+
+    .home-page h2 {
+        font-size: 22px;
+    }
+
+    .home-page p {
+        font-size: 16px;
+    }
 }
 
-/* Footer styling */
-.app-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #007bff;
-    color: white;
-}

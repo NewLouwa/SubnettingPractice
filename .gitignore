@@ -68,3 +68,7 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+subnetexercises-firebase-adminsdk.json
+
+processs.env

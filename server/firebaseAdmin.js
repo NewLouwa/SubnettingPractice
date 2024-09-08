@@ -1,11 +1,11 @@
 // server/firebaseAdmin.js
-require('dotenv').config();
-const admin = require('firebase-admin');
 
-// Initialize Firebase Admin SDK (usually using service account)
+const admin = require('firebase-admin');
+const serviceAccount = require('./subnetexercises-firebase-adminsdk.json');  // Download this from Firebase Console
+
 admin.initializeApp({
-    credential: admin.credential.applicationDefault(),  // Alternatively, use a service account
-    projectId: process.env.FIREBASE_PROJECT_ID
-});
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://subnetexercises-default-rtdb.firebaseio.com"  // Correct URL for the Firebase Realtime Database
+  });
 
 module.exports = admin;

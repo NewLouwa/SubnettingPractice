@@ -1,4 +1,7 @@
-export function BaseLayout(content) {
+export function BaseLayout(content, isLoggedIn = false) {
+    // Log pour afficher l'état de connexion de l'utilisateur
+    console.log(`User logged in: ${isLoggedIn}`);
+
     // Créer les éléments communs
     const app = document.getElementById('app');
     app.innerHTML = '';  // Vider le conteneur
@@ -12,8 +15,8 @@ export function BaseLayout(content) {
         </div>
         <nav class="main-nav">
             <a href="#" id="home-link">Accueil</a>
-            <a href="#" id="profile-link">Profil</a>
-            <a href="#" id="signup-link">Inscription</a>
+            ${isLoggedIn ? '<a href="#" id="profile-link">Profil</a>' : ''}
+            <a href="#" id="signup-link">${isLoggedIn ? 'Déconnexion' : 'Connexion / Inscription'}</a>
         </nav>
     `;
 
@@ -23,11 +26,23 @@ export function BaseLayout(content) {
 
     const footer = document.createElement('footer');
     footer.classList.add('app-footer');
-    footer.innerHTML = '<p>&copy; Exercices</p>';
+    footer.innerHTML = '<p>&copy; 2024, NewLouwa <br> Made with ❤️ and 🤖</p>';
 
     // Ajouter les éléments au conteneur principal
     app.appendChild(header);
     app.appendChild(main);
     app.appendChild(footer);
+
+    // Gestion des événements pour la déconnexion
+    const signupLink = document.getElementById('signup-link');
+    if (isLoggedIn) {
+        signupLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            logoutUser();  // Fonction de déconnexion
+            window.location.hash = 'home';  // Rediriger vers la page d'accueil après la déconnexion
+        });
+    }
+
     console.log("BaseLayout loaded");
 }
+
