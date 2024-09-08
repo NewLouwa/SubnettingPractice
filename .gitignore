@@ -13,10 +13,12 @@ firebase-debug.*.log*
 
 # Firebase config
 firebaseConfig.js
+subnetexercises-firebase-adminsdk.json  # Important: ignore Firebase service account JSON
+
 # Uncomment this if you'd like others to create their own Firebase project.
 # For a team working on the same Firebase project(s), it is recommended to leave
 # it commented so all members can deploy to the same project(s) in .firebaserc.
-# .firebaserc
+.firebaserc  # Ignore this if you don't want to share Firebase settings
 
 # Runtime data
 pids
@@ -28,7 +30,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+coverage/
 
 # nyc test coverage
 .nyc_output
@@ -37,19 +39,19 @@ coverage
 .grunt
 
 # Bower dependency directory (https://bower.io/)
-bower_components
+bower_components/
 
 # node-waf configuration
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
+build/Release/
 
 # Dependency directories
 node_modules/
 
 # Optional npm cache directory
-.npm
+.npm/
 
 # Optional eslint cache
 .eslintcache
@@ -65,10 +67,15 @@ node_modules/
 
 # dotenv environment variables file
 .env
+process.env  # Important: Ignore your environment variables
+
+# Sensitive config or key files
+subnetexercises-firebase-adminsdk.json  # Firebase Admin SDK credentials (ignore this)
+process.env  # Your custom environment variables (ignore this)
 
 # dataconnect generated files
 .dataconnect
 
-subnetexercises-firebase-adminsdk.json
-
-process.env
+# Ignore local development files
+.vscode/  # Ignore any VSCode configuration
+.idea/    # Ignore Webstorm or IntelliJ project configs
